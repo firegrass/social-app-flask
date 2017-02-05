@@ -32,6 +32,21 @@ class FlaskStrategy(BaseStrategy):
     def request_host(self):
         return request.host
 
+    def request_is_secure(self):
+        return request.is_secure
+
+    def request_path(self):
+        return request.path
+
+    def request_get(self):
+        return request.args.copy()
+
+    def request_post(self):
+        return request.form.copy()
+
+    def request_port(self):
+        return request.environ['SERVER_PORT']
+
     def redirect(self, url):
         return redirect(url)
 
